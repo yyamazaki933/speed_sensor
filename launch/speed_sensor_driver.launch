@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<launch>
+  <arg name="freq" default="50"/>
+  <arg name="port" default="/dev/ttyS0"/>
+  <arg name="bandrate" default="9600"/>
+  
+  <node name="speed_sensor_driver" pkg="speed_sensor_driver" type="speed_sensor_driver" output="screen">
+    <param name="freq" type="int" value="$(arg freq)"/>
+    <param name="port" type="string" value="$(arg port)"/>
+    <param name="bandrate" type="int" value="$(arg bandrate)"/>
+  </node>
+</launch>
