@@ -5,7 +5,6 @@
 #include <unistd.h>
 #include <sys/stat.h>
 #include <sys/ioctl.h>
-#include <termios.h>
 
 CustomSerial::CustomSerial() {}
 
@@ -21,7 +20,7 @@ int CustomSerial::openPort(std::string port, int baudRate)
 
     tcgetattr(fd_, &oldtio_);
 
-    termios newtio;
+    struct termios newtio;
     memset(&newtio, 0, sizeof(newtio));
 
     newtio.c_cflag = CS8 | CLOCAL | CREAD;  

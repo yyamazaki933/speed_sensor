@@ -40,8 +40,6 @@ void sensor_update()
         return;
     }
 
-    ROS_INFO_STREAM();
-
     std::vector<std::string> vec = split(data, ',');
     int seq = std::stod(vec.at(0));
     int pluse = std::stod(vec.at(1));
